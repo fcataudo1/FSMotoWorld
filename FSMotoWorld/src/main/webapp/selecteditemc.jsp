@@ -31,7 +31,7 @@ function abc(x)
 </script>
 <body>
 
-<%@ include file = "navbar.jsp" %>
+<%@ include file = "customer_navbar.jsp" %>
 <center>
 <div style="background-color: #ebe9eb">
 	<br>

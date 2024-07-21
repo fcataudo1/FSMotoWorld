@@ -6,16 +6,7 @@
 	
 	<b style='color: firebrick'>Benevenuto <%= A%> </b> 
 	
-<b>	<a href="cartnulla.jsp" class="w3-bar-item w3-button" ><img src = images/cart.png height=40px alt=Cart></a>
-
-	<b style="position: relative;
-  top: 16px;
-  right: 37px;"><span style="height: 25px;
-  width: 25px;
-  background-color: red;
-  border-radius: 50%;
-  display: inline-block"><b style="color:white"><center><%=tqty %></center></b></span></b>
-	</b>
+	
 	
 		
 	<a href="addproduct.jsp" class="w3-bar-item w3-button"  ><b>Aggiungere Prodotto</b></a>

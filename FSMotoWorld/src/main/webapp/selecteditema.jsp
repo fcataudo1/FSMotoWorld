@@ -88,10 +88,7 @@ function abc(x)
 									<th><%=l.getPquantity() %> </th>
 								</tr>
 
-								<tr>
-							<th style='text-align: center' colspan='2' align='center' bgcolor='#D6EEEE'><a href='addtocartnull?id=<%=l.getBname()%>&ie=<%=l.getCname()%>&ig=<%=l.getPname() %>&ih=<%=l.getPprice()%>&ii=<%=l.getPquantity()%>&ij=<%=l.getPimage()%>'>Aggiungi al carrello</th>
-
-								</tr>
+								
 				
 						</table>
 						
