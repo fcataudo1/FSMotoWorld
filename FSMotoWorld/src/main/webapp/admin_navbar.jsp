@@ -29,6 +29,8 @@
 	
 	
 	
+	
+	
 	<a href = "managecustomers.jsp" class="w3-bar-item w3-button" ><b>Gestire Clienti</b></a>
 	
 	<a href = "managetables.jsp" class="w3-bar-item w3-button" ><b>Gestire Altro</b></a>
