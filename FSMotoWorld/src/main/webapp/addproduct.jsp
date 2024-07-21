@@ -57,6 +57,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 	
 	}
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </style>
 </head>
@@ -112,7 +113,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 			<h2><input type=number name="pprice" class = "c" required></h2>
 				
 			<h4><b class="f">Quantità:</b></h4>
-			<h2><input type="number" value="1" name="pquantity" class="c" required></h2>
+			<h2><input type="number" value="1" name="pquantity" class="c" required min="1"></h2>
 
 			<h4><b class="h">Descrizione Prodotto:</b></h4>
     		<textarea name="description" class="i" rows="4" cols="50" required></textarea>
@@ -137,7 +138,34 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 	<%@ include file = "footer.jsp" %>
 </footer>
 		</form>
-		
+		<script>
+$(document).ready(function() {
+    $('#addProductForm').on('submit', function(e) {
+        e.preventDefault();
+
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: 'addproduct', // URL dell'endpoint del server per gestire il form
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                alert('Prodotto aggiunto con successo');
+                $('#addProductForm')[0].reset(); // Reset del form
+            },
+            error: function(xhr, status, error) {
+                alert('Errore durante l\'aggiunta del prodotto');
+                console.error(error);
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
 		
 
 

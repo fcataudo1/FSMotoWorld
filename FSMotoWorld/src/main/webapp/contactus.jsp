@@ -112,10 +112,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
             
             
             <br>
-	<footer text-align: center;
-  padding: 3px;
-  background-color: DarkSalmon;
-  color: white;>
+	<footer >
   
 	<%@ include file = "footer.jsp" %>
 </footer>

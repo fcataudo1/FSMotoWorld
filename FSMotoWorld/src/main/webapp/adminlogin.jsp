@@ -24,6 +24,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     .b{
 	margin-right: 245px;
 	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
 </style>
 
 </head>
@@ -136,6 +138,34 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 </footer>
             
 		</form>
+		
+		
+		<script>
+$(document).ready(function() {
+    $('#loginForm').on('submit', function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: 'checkadmin',
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function(response) {
+                // Assuming the server returns a JSON object with success or error message
+                var result = JSON.parse(response);
+                if (result.success) {
+                    window.location.href = 'adminhome.jsp'; // Redirect to admin dashboard on success
+                } else {
+                    $('#message').html('<b style="color: firebrick">' + result.message + '</b>');
+                }
+            },
+            error: function(xhr, status, error) {
+                $('#message').html('<b style="color: firebrick">Errore durante il login</b>');
+                console.error(error);
+            }
+        });
+    });
+});
+</script>
 		
 		
 		

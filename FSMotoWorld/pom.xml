@@ -23,6 +23,13 @@
     <version>1.4</version>
 </dependency>
 
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.10.1</version> <!-- Assicurati di utilizzare l'ultima versione disponibile -->
+</dependency>
+
+
     <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 <dependency>
     <groupId>commons-io</groupId>

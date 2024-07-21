@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="Css/abc.css">
 <link rel="stylesheet" href="Css/font.css">
 <link rel="stylesheet" href="Css/whitespace.css">
+ <!-- Add jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style>
 .w3-sidebar a {font-family: "Roboto", sans-serif}
@@ -161,15 +163,36 @@ String fail = null;
             
             
             <br>
-	<footer text-align: center;
-  padding: 3px;
-  background-color: DarkSalmon;
-  color: white;>
+	<footer>
   
 	<%@ include file = "footer.jsp" %>
 </footer>
             
 		</form>
+		
+		<script>
+$(document).ready(function() {
+    $('#loginForm').submit(function(event) {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+
+        $.ajax({
+            type: 'POST',
+            url: 'checkcustomer', // URL to send the form data to
+            data: $(this).serialize(), // Serialize form data
+            success: function(response) {
+                // Handle successful response here
+                $('#loginMessages').html('<b style="color: green">Login effettuato con successo!</b>');
+                // Optionally, you can redirect the user or update the page
+                window.location.href = 'customerhome.jsp'; // Redirect to another page on success
+            },
+            error: function(xhr, status, error) {
+                // Handle error here
+                $('#loginMessages').html('<b style="color: firebrick">Errore durante il login. Riprova più tardi.</b>');
+            }
+        });
+    });
+});
+</script>
 
 </body>
 </html>

@@ -21,7 +21,8 @@
 <link rel="stylesheet" href="Css/w3.css">
 <link rel="stylesheet" href="Css/font.css">
 <link rel="stylesheet" href="Css/abc.css">
-
+<!-- Add jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>
 .w3-sidebar a {font-family: "Roboto", sans-serif}
 body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
@@ -96,15 +97,35 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 		
 		<br>
 		
-	<footer text-align: center;
-  padding: 3px;
-  background-color: DarkSalmon;
-  color: white;>
+	<footer >
   
 	<%@ include file = "footer.jsp" %>
 </footer>
         
     </form>
+    
+    <script>
+$(document).ready(function() {
+    $('#deleteProductForm').submit(function(event) {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+
+        $.ajax({
+            type: 'POST',
+            url: $(this).attr('action'), // Use the action attribute of the form
+            data: $(this).serialize(), // Serialize form data
+            success: function(response) {
+                // Handle successful response here
+                $('#resultMessage').html('<b style="color: green">Prodotto eliminato con successo!</b>');
+                // Optionally, update the product list or redirect
+            },
+            error: function(xhr, status, error) {
+                // Handle error here
+                $('#resultMessage').html('<b style="color: firebrick">Errore durante l\'eliminazione del prodotto. Riprova più tardi.</b>');
+            }
+        });
+    });
+});
+</script>
 
 
 </body>
